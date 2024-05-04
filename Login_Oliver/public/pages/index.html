@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- METADATOS DE LA PÁGINA-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- HOJA DE ESTILOS -->
+    <link rel="stylesheet" href="./styles/styleSheet.css">
+
+    <!-- ALERTAS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!--TÍTULO DE LA PÁGINA -->
+    <title>Cifrado AES</title>
+  </head>
+
+  <body>
+
+    <!-- CUADROS DE COLORES DE FONDO -->
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+
+    <!-- FONDO DE PARTÍCULAS FIJO -->
+    <div id="particles-js"></div>
+
+      <!--CONTENEDOR DEL FORMULARIO -->
+      <section class="container">
+
+        <!-- CONTENEDOR DE CABECERA -->
+        <div class="header-container">
+          
+          <!-- TÍTULO DE CABECERA -->
+          <div class="header-content">
+            <header>Inicio de Sesión</header>
+          </div>
+          
+          <!-- BOTÓN DE MODO OSCURO -->
+          <div class="darkmode-container">
+            <label class="darkmode">
+              <input type="checkbox" class="darkmode-input" id="darkmode-toggle">
+
+              <!-- ÍCONOS DEL BOTÓN -->
+              <ion-icon name="sunny" class="sun"></ion-icon>
+              <ion-icon name="moon" class="moon"></ion-icon>
+              <span class="toggle"></span>
+              <span class="animateBg"></span>
+            </label>
+          </div>
+        </div>
+      
+      <!---FORMULARIO DE INICIO DE SESIÓN-->
+      <form action="/" method="post" class="form" id="loginForm">
+          
+        <!-- CAMPO DE TEXTO -->
+        <div class="input-box">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required/>
+        </div>
+
+        <!-- CAMPO DE CONTRASEÑA-->
+        <div class="input-box">
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" placeholder="Contraseña" required/>
+        </div>
+
+        <!-- RECAPTCHA -->
+        <div class="g-recaptcha" style="margin-top: 32px; display:flex; text-align: center; justify-content: center;" data-sitekey="6Lests4pAAAAAPUsl59DlXZWFl7OM-Fme5R5UT_-"></div>
+          
+        <!-- BOTÓN DE INICIO DE SESIÓN -->
+        <button type="button" id="login">
+            Iniciar sesión
+        </button>
+
+        <!-- HIPERVÍNCULO A RECUPERAR CONTRASEÑA -->
+        <p class="olvidoContra" id="forgotten">
+            ¿Olvidó su contraseña?
+            <a href="/forgotten">Haga clic aquí para recuperarla.</a>
+        </p>
+
+        <!-- HIPERVÍNCULO A REGISTRO -->
+        <p class="registroCuenta" id="createAcc">
+            ¿No tiene una cuenta?
+            <a href="/signup">Regístrese.</a>
+        </p>
+      </form>
+    </section>
+    
+      <!-- SCRIPT RECAPTCHA -->
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+      <!-- SCRIPT PARTICULAS -->
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      
+      <!-- SCRIPT DE JAVASCRIPT - MODO OSCURO -->
+      <script src="./js/darkMode.js"></script>
+      
+      <!-- SCRIPT DE JAVASCRIPT - FONDO DE PARTÍCULAS -->
+      <script src="./js/particlesBackground.js"></script>
+
+      <!-- SCRIPTS DE JAVASCRIPT - ICONOS -->
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script src="./js/controllers/loginControl.js" type="application/javascript"></script>
+  </body>
+</html>

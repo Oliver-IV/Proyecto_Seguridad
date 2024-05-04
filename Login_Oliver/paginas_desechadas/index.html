@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='./styles/index.css'>
+</head>
+<body class = 'd-flex align-items-center py-4 bg-body-tertiary'>
+    <main class="form-signin w-25 m-auto mt-5">
+        <form action="" method="post" id="loginform">
+          <img class="mb-4" src="./imgs/security_icon.png" alt="" width="72" height="70">
+          <h1 class="h3 mb-3 fw-normal">Iniciar Sesion</h1>
+      
+          <div class="form-floating">
+            <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com">
+            <label for="correo">Correo Electrónico</label>
+          </div>
+          <div class="form-floating mt-3">
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <label for="password">Contraseña</label>
+          </div>
+          <button class="btn btn-primary w-100 py-2 mt-2" type="button" id="login">Iniciar Sesión</button>
+          <button class="btn w-50 py-2 mt-2 mx-auto d-block" type="button" id="createAcc">Crear Cuenta</button>
+          <button class="btn btn-link mx-auto d-block" style="font-size: small;" type="button" id="forgotten">¿Olvidaste tu contraseña?</button>
+          <p class="mt-3 mb-3 text-body-secondary">© Oliver Inzunza Valle | ISW 2024</p>
+        </form>
+    </main>
+    <script src="./js/controllers/loginControl.js" type="application/javascript"></script>
+</body>
+</html>
