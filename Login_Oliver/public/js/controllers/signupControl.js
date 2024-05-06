@@ -30,23 +30,23 @@ function crearCuenta() {
             })
                 .then(response => {
                     if (response.ok) {
-                        alert("Se ha creado la cuenta!");
-                        window.location.href = '/';
+                        Swal.fire("Cuenta creada", "Se ha creado la cuenta!", "success").then(() => {
+                            window.location.href = '/';
+                        }) ;
                     } else {
                         return response.text().then(errorMessage => {
-                            alert(errorMessage);
-                            window.location.href = '/signup';
+                            Swal.fire("Error", errorMessage, "error") ;
                         });
                     }
                 })
                 .catch(error => {
-                    alert('Se produjo un error al crear la cuenta. Por favor, inténtalo de nuevo.');
+                    Swal.fire("Error", 'Se produjo un error al crear la cuenta. Por favor, inténtalo de nuevo.', "error") ;
                 });
         } else {
-            alert("Los correos no coinciden") ;
+            Swal.fire("Error", 'Los correos no coinciden', "error") ;
         }
     } else {
-        alert("Necesitas validar el captcha antes de continuar") ;
+        Swal.fire("Error", 'Necesitas validar el captcha antes de continuar', "error") ;
     }
 }
 

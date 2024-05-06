@@ -27,16 +27,15 @@ function iniciarSesion() {
                     window.location.href = '/menu';
                 } else {
                     return response.text().then(errorMessage => {
-                        alert(errorMessage);
-                        window.location.href = '/';
+                        Swal.fire("Error", errorMessage, "error") ;
                     });
                 }
             })
             .catch(error => {
-                alert('Se produjo un error al iniciar sesión. Por favor, inténtalo de nuevo.');
+                Swal.fire("Error", 'Se produjo un error al iniciar sesión. Por favor, inténtalo de nuevo.', "error") ;
             });
     } else {
-        alert("Necesitas validar el captcha antes de continuar") ;
+        Swal.fire("Error", '"Necesitas validar el captcha antes de continuar"', "error") ;
     } 
 }
 

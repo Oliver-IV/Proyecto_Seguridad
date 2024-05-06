@@ -29,7 +29,11 @@ app.get("/menu", (req, res) => {
 app.post("/", (req, res) => {
     console.log(req.body) ;
     
-    autenticacion.login(req, res) ;
+    if(req.body.correo != '' || req.body.password != '') {
+        autenticacion.login(req, res) ;
+    } else {
+        res.status(400).send("Llena los campos vacios") ;
+    }
 }) ;
 
 app.get("/signup", (req, res) => {
@@ -38,9 +42,11 @@ app.get("/signup", (req, res) => {
 }) ;
 
 app.post("/signup", (req, res) => {
-
-    autenticacion.registrar(req, res) ; 
-
+    if(req.body.nombre != '' || req.body.apellidop != '' || req.body.apellidom != '' || req.body.correo != '' || req.body.password != '') {
+        autenticacion.registrar(req, res) ; 
+    } else {
+        res.status(400).send("Llena los campos vacios") ;
+    }
 }) ;
 
 app.get("/forgotten", (req, res) => {
