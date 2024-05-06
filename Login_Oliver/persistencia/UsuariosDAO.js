@@ -70,6 +70,8 @@ class UsuariosDAO {
             ` ;
             conexion.query(sentencia, valores, (err, results) => {
                 if(err) {
+                    console.log(err.code) ;
+                    console.log(err.message) ;
                     reject(new Error("Hubo un error al iniciar sesion")) ;
                     conexion.end() ;
                 } else {
