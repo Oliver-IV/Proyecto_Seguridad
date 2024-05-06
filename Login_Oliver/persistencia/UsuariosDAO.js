@@ -5,8 +5,13 @@ import UsuarioDTO from "./UsuarioDTO.js" ;
 import CuentaDTO from "./CuentaDTO.js" ;
 import crypto from "crypto" ;
 import CryptoJS from "crypto-js";
+import dotenv from "dotenv"; 
 
 class UsuariosDAO {
+
+    constructor() {
+        dotenv.config() ;
+    }
 
     agregarUsuario(usuarioNuevo) {
         return new Promise((resolve, reject) => {
@@ -22,7 +27,7 @@ class UsuariosDAO {
                             reject(new Error("Ya existe un Usuario con ese correo")) ;
                             break;
                         default:
-                            reject(new Error("Hubo un error al iniciar sesion")) ;
+                            reject(new Error("Hubo un error al registrarse")) ;
                             break;
                     }
                     reject(err) ;
@@ -141,13 +146,13 @@ function generarSHA256(contrasenia) {
 }
 
 function encriptarAES(contrasenia) {
-    const key = "potrositsoningenieriaensoftware7" ;
+    const key = process.env.AES_KEY ;
     const contraseniaEncriptada = CryptoJS.AES.encrypt(contrasenia, key).toString();
     return contraseniaEncriptada;
 }
 
 function desencriptarAES(contraseniaEncriptada) {
-    const key = "potrositsoningenieriaensoftware7" ;
+    const key = process.env.AES_KEY ;;
     const decryptedBytes = CryptoJS.AES.decrypt(contraseniaEncriptada, key);
     const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
     return decryptedMessage;

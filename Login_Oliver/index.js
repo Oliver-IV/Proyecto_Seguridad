@@ -5,10 +5,10 @@ import { fileURLToPath } from "url";
 import { methods as autenticacion } from "./controllers/autenticacion.js";
 import jsonwebtoken from "jsonwebtoken" ;
 import dotenv from "dotenv" ;
+import { PORT } from "./config.js";
 
 const dirName = dirname(fileURLToPath(import.meta.url)) ;
 const app = express() ;
-const port = 3000 ;
 
 app.use(bodyParser.urlencoded({extended: true})) ;
 app.use(express.static("public")) ;
@@ -55,8 +55,8 @@ app.post("/forgotten", (req, res) => {
 
 }) ;
 
-app.listen(port, () => {
-    console.log(`Escuchando en puerto ${port}`) ;
+app.listen(PORT, () => {
+    console.log(`Escuchando en puerto ${PORT}`) ;
 }) ;
 
 console.log(dirName) ;
