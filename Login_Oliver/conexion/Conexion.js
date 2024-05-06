@@ -7,6 +7,11 @@ import { DB_USER } from "../config.js";
 
 class Conexion {
     constructor() {
+        console.log(DB_HOST) ;
+        console.log(DB_NAME) ;
+        console.log(DB_PASSWORD) ;
+        console.log(DB_PORT) ;
+        console.log(DB_USER) ;
         this.conexion = sql.createConnection({
             host: DB_HOST,
             user: DB_USER,
