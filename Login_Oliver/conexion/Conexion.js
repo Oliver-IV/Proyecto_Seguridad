@@ -1,4 +1,4 @@
-import sql from "mysql";
+import sql from "mysql2";
 import { DB_HOST } from "../config.js";
 import { DB_NAME } from "../config.js";
 import { DB_PASSWORD } from "../config.js";
