@@ -135,6 +135,27 @@ class UsuariosDAO {
         }) ;
     }
 
+    existeEnBD(usuario) {
+        return new Promise((resolve, reject) => {
+            const conexion = new Conexion().conexion ;
+            const valores = [usuario.id, usuario.nombres, usuario.apellidoP, usuario.apellidoM, usuario.correo] ;
+            conexion.query("SELECT COUNT(*) AS count FROM usuario WHERE id = ? AND nombres = ? AND apellido_paterno = ? AND apellido_materno = ? AND correo = ? ;", valores, (err, results) => {
+                if(err) {
+                    reject(err) ;
+                    conexion.end() ;
+                    
+                } else {
+                    if(results.length == 0) {
+                        resolve(false) ;
+                    } else {
+                        resolve(true) ;
+                    }
+                    conexion.end() ;
+                }
+            }) ;
+        }) ;
+    }
+
 }
 
 function generarSHA256(contrasenia) {

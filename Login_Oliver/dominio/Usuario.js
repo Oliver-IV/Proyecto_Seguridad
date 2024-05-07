@@ -9,6 +9,15 @@ class Usuario {
         this.contrasenia = contrasenia ;
     }
 
+    toJSON() {
+        return {
+            id: this.id,
+            nombres: this.nombres,
+            apellidoP: this.apellidoP,
+            apellidoM: this.apellidoM,
+            correo: this.correo
+        };
+    }
 }
 
 export default Usuario ;

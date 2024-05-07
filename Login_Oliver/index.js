@@ -6,6 +6,8 @@ import { methods as autenticacion } from "./controllers/autenticacion.js";
 import jsonwebtoken from "jsonwebtoken" ;
 import dotenv from "dotenv" ;
 import { PORT } from "./config.js";
+import { methods as authorization } from "./middlewares/authorization.js"
+import cookieParser from "cookie-parser";
 
 const dirName = dirname(fileURLToPath(import.meta.url)) ;
 const app = express() ;
@@ -13,16 +15,17 @@ const app = express() ;
 app.use(bodyParser.urlencoded({extended: true})) ;
 app.use(express.static("public")) ;
 app.use(express.json()) ;
+app.use(cookieParser()) ;
 
 
-app.get("/", (req, res) => {
+app.get("/", authorization.validarSesionUsuarioNoLoggeado, (req, res) => {
     res.sendFile(dirName + "/public/pages/index.html") ;
     console.log('Index mandado') ;
 }) ;
 
-app.get("/menu", (req, res) => { 
-    res.sendFile(dirName + "/public/pages/menu.html") ;
-    console.log("Menu Mandado") ;
+app.get("/encrypt", authorization.validarSesionUsuarioLoggeado, (req, res) => { 
+    res.sendFile(dirName + "/public/pages/encrypt.html") ;
+    console.log("Inicio Mandado") ;
 }) ;
 
  
@@ -36,7 +39,7 @@ app.post("/", (req, res) => {
     }
 }) ;
 
-app.get("/signup", (req, res) => {
+app.get("/signup", authorization.validarSesionUsuarioNoLoggeado, (req, res) => {
     res.sendFile(dirName + "/public/pages/register.html") ;
     console.log("Registrar Mandado") ;
 }) ;

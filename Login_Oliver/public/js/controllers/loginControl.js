@@ -24,7 +24,7 @@ function iniciarSesion() {
         })
             .then(response => {
                 if (response.ok) {
-                    window.location.href = '/menu';
+                    window.location.href = '/encrypt';
                 } else {
                     return response.text().then(errorMessage => {
                         Swal.fire("Error", errorMessage, "error") ;
@@ -52,11 +52,11 @@ const init = () => {
 
     } ;
 
-    botonForgotten.onclick = () => {
+    // botonForgotten.onclick = () => {
 
-        window.location.href = '/forgotten' ;
+    //     window.location.href = '/forgotten' ;
 
-    } ;
+    // } ;
 
 } ;
 

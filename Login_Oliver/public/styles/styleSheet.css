@@ -21,6 +21,219 @@ body {
     background-size: 100%;
 }
 
+.slider {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 700px;
+    background: rgb(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 25px 45px 0 rgb(0, 0, 0, 0.1);
+}
+
+
+#logout {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #e4175f;
+    color: #FFF;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+#logout:hover {
+    background-color: #eb417c;
+}
+
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    margin-bottom: 10px;
+}
+
+.input-box textarea,
+.input-box input {
+    width: 400px;
+    max-width: 100%;
+}
+
+.item-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.item-buttons button,
+.item-buttons input {
+    margin: 0 10px;
+}
+
+.item {
+    position: absolute;
+    width: 500px;
+    height: 450px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#next, #prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFF;
+    background-color: transparent;
+    border: none;
+    font-size: xxx-large;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#next {
+    right: 20px;
+}
+
+#prev {
+    left: 20px;
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .input-box label {
+    margin-bottom: 5px;
+  }
+  
+  .input-box textarea {
+    height: 150px;
+    width: 400px;
+    resize: vertical;
+  }
+  
+  .input-box .item-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .input-box .item-buttons button {
+    margin-right: 10px;
+  }
+  
+  .input-box input[type="password"] {
+    margin-right: 10px;
+  }
+
+
+body.dark-mode .scroll .item{
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 45px 0 rgba(0, 0, 0, 0.2);
+}
+
+.scroll{
+    position: relative;
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg,
+                                        transparent,
+                                        #fff, 20%,
+                                        #fff 80%, 
+                                        transparent);
+}
+
+.scroll div{
+    white-space: nowrap;
+    animation: animate var(--t) linear infinite;
+    animation-delay: calc(var(--t) / -1);
+}
+
+.scroll div:nth-child(2){
+    animation: animate2 var(--t) linear infinite;
+    animation-delay: calc(var(--t) / -2);
+}
+.scroll-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Ajusta la altura según tus necesidades */
+    flex-direction: column;
+  }
+
+@keyframes animate2{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(-200%);
+    }
+}
+
+@keyframes animate{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.scroll div span{
+    display: inline-flex;
+    margin: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 20px;
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.scroll div span:hover{
+    background: #47a647;
+    cursor: pointer;
+}
+
 /* PARTÍCULAS DE FONDO*/
 #particles-js {
     position: fixed;
@@ -31,10 +244,40 @@ body {
     z-index: -1;
 }
 
+#secret-id-text {
+    width: 245px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 45px;
+    letter-spacing: 1px;
+  }
+  
+  #secret-id {
+    height: 40px;
+    font-size: 0.95rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    padding: 5px 15px; /* Ajusta el relleno interno del botón */
+    width: 150px ;
+}  
+
+  body.dark-mode #secret-id-text{
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(29, 29, 29, 0.466);
+    color: #353535;
+  }
+
+  body.dark-mode #secret-id-text::placeholder {
+    color: #353535;
+  }
+  
 /*ESTILOS PARA EL MODO OSCURO*/
 body.dark-mode {
     background: linear-gradient(0deg, #bb65fd, #853cc2, #631ea0, #410e74, #2f0657, #150029);
     color: #f1f1f1;
+}
+
+body.dark-mode .scroll-inside{
+    color: #000;
 }
 
 body.dark-mode .container {
@@ -58,6 +301,15 @@ body.dark-mode button {
 
 body.dark-mode button:hover {
   background-color: #5a189a;
+}
+
+body.dark-mode #logout {
+    background-color: #3c096c;
+    color: #f1f1f1;
+}
+
+body.dark-mode #logout:hover {
+    background-color: #5a189a;
 }
 
 body.dark-mode .registroCuenta a,
@@ -256,6 +508,20 @@ body .color:nth-child(3){
 }
 
 /* ESTILOS DE BOTÓN*/
+.item-buttons button{
+    height: 40px;
+    width: 90%;
+    color: #FFF;
+    font-size: 1rem;
+    border: none;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    background-color: #e4175f;
+}
+
 .form button{
     height: 55px;
     width: 100%;
@@ -270,7 +536,8 @@ body .color:nth-child(3){
     background-color: #e4175f;
 }
 
-.form button:hover{
+.form button:hover,
+.item-buttons button:hover{
     background-color: #eb417c;
 }
 

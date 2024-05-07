@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <!-- METADATOS DE LA PÁGINA-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- HOJA DE ESTILOS -->
+    <link rel="stylesheet" href="./styles/styleSheet.css">
+    
+    <!--TÍTULO DE LA PÁGINA -->
+    <title>Cifrado AES</title>
+  </head>
+
+  <body>
+
+    <!-- CUADROS DE COLORES DE FONDO -->
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+
+    <!-- FONDO DE PARTÍCULAS FIJO -->
+    <div id="particles-js"></div>    <div class="container">
+        <div class="header-container">
+          <div class="header-content">
+            <header>Encriptación AES</header>
+          </div>
+          <div class="darkmode-container">
+            <label class="darkmode">
+              <input type="checkbox" class="darkmode-input" id="darkmode-toggle">
+              <ion-icon name="sunny" class="sun"></ion-icon>
+              <ion-icon name="moon" class="moon"></ion-icon>
+              <span class="toggle"></span>
+              <span class="animateBg"></span>
+            </label>
+          </div>
+        </div>
+        <div class="slider">
+            <button id="logout">
+                <ion-icon name="log-out-outline"></ion-icon>
+              </button>
+            <div class="item">
+              <div class="input-box">
+                  <label class="scroll-inside">Texto a encriptar</label>
+                <textarea placeholder="Texto a encriptar" class="txtEncrypt" required></textarea>
+                <div class="item-buttons">
+                  <button id="secret-id" class="btnEncrypt">Encriptar</button>
+                  <input class="txtKeyEncrypt" type="password" name="secret-id" id="secret-id-text" placeholder="Clave secreta">
+                </div>
+                <div class="input-box">
+                  <label class="scroll-inside">Texto encriptado</label>
+                <textarea class="txtEncryptedText" placeholder="Texto encriptado" required></textarea>
+                </div>
+              </div>
+            </div>
+          <div class="item">
+            <div class="input-box">
+              <label class="scroll-inside">Texto a desencriptar</label>
+              <textarea class="txtDecrypt" placeholder="Texto a desencriptar" required></textarea>
+              <div class="item-buttons">
+                <button id="secret-id" class="btnDecrypt">Desencriptar</button>
+                <input class="txtKeyDecrypt" type="password" name="secret-id" id="secret-id-text" placeholder="Clave secreta">
+              </div>
+              <div class="input-box">
+                <label class="scroll-inside">Texto desencriptado</label>
+              <textarea class="txtDecryptedText" placeholder="Texto desencriptado" required></textarea>
+              </div>
+            </div>
+          </div>
+          <button id="prev">
+            <ion-icon name="caret-back"></ion-icon>
+          </button>
+          <button id="next">
+            <ion-icon name="caret-forward"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <!-- SCRIPT SWAl -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+      <!-- LIBRERÍA DE PARTICULAS -->
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+      <!-- SCRIPT DE JAVASCRIPT - SCROLLBAR -->
+      <script src="./js/encryptBoxes.js"></script>
+      
+      <!-- SCRIPT DE JAVASCRIPT - MODO OSCURO -->
+      <script src="./js/darkMode.js"></script>
+      
+      <!-- SCRIPT DE JAVASCRIPT - FONDO DE PARTÍCULAS -->
+      <script src="./js/particlesBackground.js"></script>
+
+      <!-- SCRIPTS DE JAVASCRIPT - ICONOS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script src="./js/controllers/encryptControl.js" type="application/javascript"></script>
+  </body>
+</html>
